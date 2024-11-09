@@ -3,6 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { registerSchema } from "../schemas";
 
 import { DottedSeparator } from "@/components/dotted-separator";
 import { Button } from "@/components/ui/button";
@@ -22,16 +23,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import Link from "next/link";
-
-const formSchema = z.object({
-  name: z.string().trim().min(1, "Required"),
-  email: z.string().trim().email(),
-  password: z.string().min(8, "Minimum of 8 characters required"),
-});
+import { useReducer } from "react";
+import { useRegister } from "../api/use-register";
 
 export const SignUpCard = () => {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const { mutate } = useRegister();
+  const form = useForm<z.infer<typeof registerSchema>>({
+    resolver: zodResolver(registerSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -39,8 +37,8 @@ export const SignUpCard = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+  const onSubmit = (values: z.infer<typeof registerSchema>) => {
+    mutate({ json: values });
   };
 
   return (
@@ -128,8 +126,6 @@ export const SignUpCard = () => {
           <FcGoogle className="mr-2" />
           Login with Google
         </Button>
-      </CardContent>
-      <CardContent className="p-6 flex flex-col gap-y-4">
         <Button
           size={"lg"}
           variant={"secondary"}

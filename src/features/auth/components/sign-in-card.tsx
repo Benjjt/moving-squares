@@ -17,8 +17,11 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
+import { useLogin } from "../api/use-login";
 
 export const SignInCard = () => {
+  const { mutate } = useLogin();
+
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -28,7 +31,7 @@ export const SignInCard = () => {
   });
 
   const onSubmit = (values: z.infer<typeof loginSchema>) => {
-    console.log(values);
+    mutate({ json: values });
   };
 
   return (
@@ -68,16 +71,7 @@ export const SignInCard = () => {
                 </FormItem>
               )}
             />
-            {/* <Input
-              required
-              type="password"
-              value={""}
-              onChange={() => {}}
-              placeholder="Enter Password"
-              disabled={false}
-              min={8}
-              max={256}
-            /> */}
+
             <Button disabled={false} size="lg" className="w-full">
               Login
             </Button>
@@ -97,8 +91,6 @@ export const SignInCard = () => {
           <FcGoogle className="mr-2" />
           Login with Google
         </Button>
-      </CardContent>
-      <CardContent className="p-6 flex flex-col gap-y-4">
         <Button
           size={"lg"}
           variant={"secondary"}
