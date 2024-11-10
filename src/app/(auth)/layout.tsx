@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import movesquares from "../../../public/movesquares.png";
 
 //Shadcn
 import { Button } from "@/components/ui/button";
@@ -16,7 +17,7 @@ const AuthLayout = ({ children }: AuthLayoutProps) => {
     <div className="bg-neutral-100 min-h-screen">
       <div className="mx-auto max-w-screen-2xl p-4">
         <nav className="flex justify-between items-center">
-          <Image src="/logo.svg" alt="logo" width={152} height={56} />
+          <Image src={movesquares} alt="logo" width={125} height={56} />
           <Link href={pathname === "/sign-in" ? "/sign-up" : "/sign-in"}>
             <Button variant="secondary">
               {pathname === "/sign-in" ? "Sign Up" : "Login"}
