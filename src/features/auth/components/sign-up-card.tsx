@@ -24,7 +24,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import Link from "next/link";
-import { useReducer } from "react";
 import { useRegister } from "../api/use-register";
 
 export const SignUpCard = () => {

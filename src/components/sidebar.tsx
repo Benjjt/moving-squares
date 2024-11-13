@@ -2,8 +2,8 @@ import React from "react";
 import Link from "next/link";
 import logo from "../../public/movesquares.png";
 import Image from "next/image";
-import { DottedSeparator } from "./dotted-separator";
 import { Navigation } from "./navigation";
+import { Separator } from "./ui/separator";
 
 export const Sidebar = () => {
   return (
@@ -16,7 +16,7 @@ export const Sidebar = () => {
           height={100}
         ></Image>
       </Link>
-      <DottedSeparator className="my-4" />
+      <Separator className="my-4" />
       <Navigation />
     </aside>
   );
