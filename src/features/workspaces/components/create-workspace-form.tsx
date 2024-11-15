@@ -23,6 +23,7 @@ import { useCreateWorkspace } from "../api/use-create-workspace";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { createWorkspaceSchema } from "../schemas";
 import { useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 interface CreateWorkspaceFormProps {
   onCancel?: () => void;
@@ -150,6 +151,7 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                 type="button"
                 onClick={onCancel}
                 disabled={isPending}
+                className={cn(!onCancel && "invisible")}
               >
                 Cancel
               </Button>
