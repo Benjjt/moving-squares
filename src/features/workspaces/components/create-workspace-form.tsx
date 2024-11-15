@@ -22,6 +22,7 @@ import { Separator } from "@/components/ui/separator";
 import { useCreateWorkspace } from "../api/use-create-workspace";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { createWorkspaceSchema } from "../schemas";
+import { useRouter } from "next/navigation";
 
 interface CreateWorkspaceFormProps {
   onCancel?: () => void;
@@ -29,7 +30,7 @@ interface CreateWorkspaceFormProps {
 
 export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
-
+  const router = useRouter();
   const { mutate, isPending } = useCreateWorkspace();
   const form = useForm<z.infer<typeof createWorkspaceSchema>>({
     resolver: zodResolver(createWorkspaceSchema),
@@ -39,7 +40,17 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
   });
 
   const onSubmit = (values: z.infer<typeof createWorkspaceSchema>) => {
-    mutate({ form: values });
+    mutate(
+      { form: values },
+      {
+        onSuccess: ({ data }) => {
+          form.reset();
+          // onCancel?.();
+          router.push(`/workspaces/${data.$id}`);
+          //TODO: Redirect to new workspace
+        },
+      }
+    );
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
