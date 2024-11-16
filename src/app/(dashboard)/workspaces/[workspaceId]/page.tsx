@@ -1,6 +1,6 @@
 import React from "react";
 
-import { getCurrent } from "@/features/auth/actions";
+import { getCurrent } from "@/features/auth/queries";
 import { redirect } from "next/navigation";
 
 const WorkspaceId = async () => {
