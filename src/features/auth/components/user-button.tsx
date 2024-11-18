@@ -56,16 +56,14 @@ export const UserButton = () => {
             </AvatarFallback>
           </Avatar>
           <div className="flex flex-col items-center justify-center">
-            <p className="text-small font-medium text-neutral-900">
-              {name || "User"}
-            </p>
+            <p className="text-small font-medium ">{name || "User"}</p>
             <p className="text-xs text-neutral-500">{email}</p>
           </div>
         </div>
         <DottedSeparator className="mb-1" />
         <DropdownMenuItem
           onClick={() => logout()}
-          className="h-10 flex items-center justify-center text-amber-700 font-medium cursor-pointer"
+          className="h-10 flex items-center justify-center  font-medium cursor-pointer"
         >
           <LogOut className="size-4 mr-2" />
           Log Out

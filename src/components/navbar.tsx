@@ -1,6 +1,7 @@
 import React from "react";
 import { UserButton } from "@/features/auth/components/user-button";
 import { MobileSidebar } from "./mobile-sidebar";
+import { ModeToggle } from "./mode-toggle";
 
 const Navbar = () => {
   return (
@@ -12,7 +13,10 @@ const Navbar = () => {
         </p>
       </div>
       <MobileSidebar />
-      <UserButton></UserButton>
+      <div className="flex space-x-4 items-center">
+        <ModeToggle />
+        <UserButton></UserButton>
+      </div>
     </nav>
   );
 };
