@@ -22,7 +22,7 @@ import { Separator } from "@/components/ui/separator";
 import { useCreateProject } from "../api/use-create-project";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { createProjectSchema } from "../schemas";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 
@@ -54,7 +54,7 @@ export const CreateProjectForm = ({ onCancel }: CreateProjectFormProps) => {
       {
         onSuccess: ({ data }) => {
           form.reset();
-          //TODO Redirect to project screen
+          router.push(`/workspaces/${workspaceId}/projects/${data.$id}`);
         },
       }
     );

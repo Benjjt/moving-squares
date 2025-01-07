@@ -5,6 +5,8 @@ import { FaGithub } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import fullLogo from "../../../../public/movesquares.png";
+import Image from "next/image";
 
 import { DottedSeparator } from "@/components/dotted-separator";
 import { Button } from "@/components/ui/button";
@@ -38,6 +40,12 @@ export const SignInCard = () => {
   return (
     <Card className="w-full h-full md:w-[487px] border-none shadow-none">
       <CardHeader className="flex items-center justify-center text-center p-7">
+        <Image
+          height={200}
+          width={120}
+          src={fullLogo}
+          alt="moving squares logo"
+        />
         <CardTitle className="text-2xl">Welcome Back!</CardTitle>
       </CardHeader>
       <div className="px-7 mb-2">

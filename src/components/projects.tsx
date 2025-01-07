@@ -10,7 +10,6 @@ import { useCreateProjectModal } from "@/features/projects/hooks/use-create-proj
 import { ProjectAvatar } from "@/features/projects/components/project-avatar";
 
 const Projects = () => {
-  const projectId = null; //TODO Add project id
   const workspaceId = useWorkspaceId();
   const pathname = usePathname();
   const { open } = useCreateProjectModal();
