@@ -224,7 +224,7 @@ export const CreateTaskForm = ({
                 Cancel
               </Button>
               <Button disabled={isPending} size="lg" type="submit">
-                Create Project
+                Create Task
               </Button>
             </div>
           </form>
