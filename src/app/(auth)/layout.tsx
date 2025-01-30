@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import movesquares from "../../../public/movesquares.png";
 import ThemeLogo from "@/components/theme-logo";
 
 //Shadcn

@@ -80,7 +80,7 @@ export const DataKanban = ({ data, onChange }: DataKanbanProps) => {
       const sourceStatus = source.droppableId as TaskStatus;
       const destStatus = destination.droppableId as TaskStatus;
 
-      let updatesPayload: {
+      const updatesPayload: {
         $id: string;
         status: TaskStatus;
         position: number;

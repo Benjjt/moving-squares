@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/form";
 import { Separator } from "@/components/ui/separator";
 import { useCreateWorkspace } from "../api/use-create-workspace";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { createWorkspaceSchema } from "../schemas";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";

@@ -100,7 +100,7 @@ const app = new Hono()
 
           return {
             ...member,
-            name: user.name,
+            name: user.name || user.email,
             email: user.email,
           };
         })
@@ -292,7 +292,7 @@ const app = new Hono()
 
     const assignee = {
       ...member,
-      name: user.name,
+      name: user.name || user.email,
       email: user.email,
     };
 
@@ -349,7 +349,7 @@ const app = new Hono()
 
       const member = await getMember({
         databases,
-        //@ts-ignore
+        //@ts-expect-error workspace id is never undefined
         workspaceId,
         userId: user.$id,
       });

@@ -8,7 +8,7 @@ import { useWorkspaceId } from "../hooks/use-workspace-id";
 import { ArrowLeftIcon, MoreVerticalIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { useGetMembers } from "@/features/members/api/use-get-members";
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import { MemberAvatar } from "@/features/members/components/member-avatar";
 import { useConfirm } from "@/hooks/use-confirm";
 

@@ -1,10 +1,10 @@
 "use client";
 import { z } from "zod";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
-import { ArrowLeftIcon, CopyIcon, ImageIcon } from "lucide-react";
+import { ArrowLeftIcon, ImageIcon } from "lucide-react";
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -27,7 +27,6 @@ import { Project } from "../types";
 import { useUpdateProject } from "../api/use-update-project";
 import { useConfirm } from "@/hooks/use-confirm";
 import { useDeleteProject } from "../api/use-delete-project";
-import { toast } from "sonner";
 
 interface EditProjectFormProps {
   onCancel?: () => void;
@@ -42,8 +41,7 @@ export const EditProjectForm = ({
   const { mutate, isPending } = useUpdateProject();
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const { mutate: deleteProject, isPending: isDeletingProject } =
-    useDeleteProject();
+  const { mutate: deleteProject } = useDeleteProject();
 
   const [DeleteDialogue, confirmDelete] = useConfirm(
     "Delete Project",

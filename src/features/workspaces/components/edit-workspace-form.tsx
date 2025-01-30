@@ -1,6 +1,6 @@
 "use client";
 import { z } from "zod";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
@@ -41,8 +41,7 @@ export const EditWorkspaceForm = ({
 }: EditWorkspaceFormProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
-  const { mutate: deleteWorkspace, isPending: isDeletingWorkspace } =
-    useDeleteWorkspace();
+  const { mutate: deleteWorkspace } = useDeleteWorkspace();
   const { mutate: resetInviteCode, isPending: isResetingInviteCode } =
     useResetInviteCode();
   const { mutate, isPending } = useUpdateWorkspace();

@@ -18,6 +18,8 @@ import { TaskStatus } from "../types";
 import { useBulkUpdateTasks } from "../api/use-bulk-update-tasks";
 import { DataCalendar } from "./data-calendar";
 
+import { useProjectId } from "@/features/projects/hooks/user-project-id";
+
 interface TaskViewSwitcherProps {
   hideProjectFilter?: boolean;
 }
@@ -30,13 +32,14 @@ export const TaskViewSwitcher = ({
   });
   const [{ status, assigneeId, projectId, dueDate }] = useTaskFilters();
   const workspaceId = useWorkspaceId();
+  const paramProjectId = useProjectId();
   const { open } = useCreateTaskModal();
 
   const { mutate: bulkUpdate } = useBulkUpdateTasks();
 
   const { data: tasks, isLoading: isLoadingTasks } = useGetTasks({
     workspaceId,
-    projectId,
+    projectId: paramProjectId || projectId,
     assigneeId,
     status,
     dueDate,

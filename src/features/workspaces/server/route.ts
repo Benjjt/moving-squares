@@ -12,7 +12,7 @@ import {
   TASKS_ID,
   WORKSPACES_ID,
 } from "@/config";
-import { ID, Query, Role } from "node-appwrite";
+import { ID, Query } from "node-appwrite";
 import { MemberRole } from "@/features/members/types";
 import { generateInviteCode } from "@/lib/utils";
 import { getMember } from "@/features/members/utils";
@@ -68,7 +68,6 @@ const app = new Hono()
     return c.json({ data: workspace });
   })
   .get("/:workspaceId/info", sessionMiddleware, async (c) => {
-    const user = c.get("user");
     const databases = c.get("databases");
 
     const { workspaceId } = c.req.param();

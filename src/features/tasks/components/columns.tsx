@@ -2,14 +2,13 @@ import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, MoreVertical } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import { Task, TaskStatus } from "../types";
+import { Task } from "../types";
 import { ProjectAvatar } from "@/features/projects/components/project-avatar";
 import { MemberAvatar } from "@/features/members/components/member-avatar";
 import { TaskDate } from "./task-date";
 import { Badge } from "@/components/ui/badge";
 import { snakeCaseToTitleCase } from "@/lib/utils";
 import { TaskActions } from "./task-actions";
-import ProjectIdPage from "@/app/(dashboard)/workspaces/[workspaceId]/projects/[projectId]/page";
 
 export const columns: ColumnDef<Task>[] = [
   {

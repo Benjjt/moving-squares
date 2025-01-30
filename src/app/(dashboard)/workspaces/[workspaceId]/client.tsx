@@ -23,7 +23,7 @@ import { useGetWorkspaceAnalytics } from "@/features/workspaces/api/use-get-work
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { Project } from "@/features/projects/types";
 import { ProjectAvatar } from "@/features/projects/components/project-avatar";
-import { Member, MemberRole } from "@/features/members/types";
+import { Member } from "@/features/members/types";
 import { MemberAvatar } from "@/features/members/components/member-avatar";
 
 export const WorkspaceIdClient = () => {

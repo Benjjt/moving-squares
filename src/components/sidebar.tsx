@@ -1,7 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import logo from "../../public/movesquares.png";
-import Image from "next/image";
 import { Navigation } from "./navigation";
 import { Separator } from "./ui/separator";
 import WorkspaceSwitcher from "./workspace-switcher";

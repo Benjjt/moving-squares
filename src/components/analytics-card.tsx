@@ -1,12 +1,7 @@
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 
 import { cn } from "@/lib/utils";
-import {
-  Card,
-  CardHeader,
-  CardDescription,
-  CardTitle,
-} from "@/components/ui/card";
+import { CardHeader, CardDescription, CardTitle } from "@/components/ui/card";
 
 interface AnalyticsCardProps {
   title: string;

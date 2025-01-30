@@ -1,11 +1,12 @@
 "use client";
 import { z } from "zod";
-import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerSchema } from "../schemas";
 import fullLogo from "../../../../public/movesquares.png";
+
+import { signUpWithGithub } from "@/lib/oauth";
 
 import Image from "next/image";
 
@@ -131,15 +132,9 @@ export const SignUpCard = () => {
           variant={"secondary"}
           className="w-full"
           disabled={false}
-        >
-          <FcGoogle className="mr-2" />
-          Register with Google
-        </Button>
-        <Button
-          size={"lg"}
-          variant={"secondary"}
-          className="w-full"
-          disabled={false}
+          onClick={() => {
+            signUpWithGithub();
+          }}
         >
           <FaGithub className="mr-2" />
           Register with Github

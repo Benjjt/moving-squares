@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useGetMembers } from "@/features/members/api/use-get-members";
 import { useGetProjects } from "@/features/projects/api/use-get-projects";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
-import { Divide, Loader } from "lucide-react";
+import { Loader } from "lucide-react";
 import { EditTaskForm } from "./edit-task-form";
 import { useGetTask } from "../api/use-get-task";
 
