@@ -3,8 +3,8 @@ import Link from "next/link";
 
 import { UserButton } from "@/features/auth/components/user-button";
 
-import ThemeLogo from "@/components/theme-logo";
-
+import Image from "next/image";
+import logo from "../../../public/movesquares.png";
 interface StandaloneLayoutProps {
   children: React.ReactNode;
 }
@@ -15,7 +15,12 @@ const StandaloneLayout = ({ children }: StandaloneLayoutProps) => {
       <div className="mx-auto max-w-screen-2xl p-4">
         <nav className="flex justify-between items-center h-[73px]">
           <Link href="/">
-            <ThemeLogo />
+            <Image
+              width={100}
+              height={100}
+              src={logo}
+              alt="Move Squares logo"
+            />
           </Link>
           <UserButton />
         </nav>
